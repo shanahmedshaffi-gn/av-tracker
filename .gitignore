@@ -1,0 +1,130 @@
+# PyAnnote Speaker Recognition System
+# Development and Testing Logs
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and Results (Generated during testing)
+logs/*.txt
+logs/*.log
+logs/transcripts/
+logs/transcripts_*/
+*.log
+
+# Model Downloads and Cache
+.cache/
+models/
+*.pt
+*.pth
+*.ckpt
+
+# Audio models (not included in repo)
+base.pt
+base.en.pt
+medium.pt
+tiny.en.pt
+
+# YOLO detection models (download separately)
+od_model/*.onnx
+od_model/yolov5.onnx
+od_model/yolov11.onnx
+
+# Keep EdgeFace model (included in repo)
+!od_model/edgeface_xxs.pt
+
+# Audio/Video Data (Keep structure, ignore content)
+data/audio.wav
+data/callcenter_*.wav
+data/cc_*.wav
+data/*.mp4
+data/*.wav
+data/outputs/*
+
+# Keep important data structure but ignore large files
+!data/embeddings/.gitkeep
+!data/face_data/.gitkeep
+!data/outputs/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Development directories (not for GitHub)
+devagent/
+project/
+legacy/
+logs/
+tests/
+
+# Data directories (keep structure only)
+data/
+data/*.wav
+data/*.mp4
+data/*.mp3
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Testing artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Audio processing temporary files
+*.wav.tmp
+*.mp3.tmp
+processing_temp/
+
+# Generated result files
+av_results_*.json
+*_results_*.json
+*_results_*.txt
+processing_temp/

@@ -1,0 +1,5 @@
+# Data directory
+# Create subdirectories locally:
+# - embeddings/ for audio speaker profiles
+# - face_data/ for visual person profiles
+# - outputs/ for generated samples

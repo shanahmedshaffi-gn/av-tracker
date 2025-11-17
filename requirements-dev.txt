@@ -1,0 +1,162 @@
+# Development Requirements for PyAnnote Multi-Modal Speaker Recognition
+# Additional packages for development, testing, and debugging
+# Created: September 8, 2025
+
+# ============================================================================
+# Core Development Dependencies
+# ============================================================================
+
+# Include base requirements
+-r requirements.txt
+
+# ============================================================================
+# Advanced Development Tools
+# ============================================================================
+
+# Code formatting and linting
+isort>=5.12.0,<6.0.0
+autopep8>=2.0.0,<3.0.0
+pylint>=2.17.0,<3.0.0
+
+# Type checking
+types-requests>=2.31.0
+types-PyYAML>=6.0.0
+types-pillow>=10.0.0
+
+# ============================================================================
+# Performance Profiling
+# ============================================================================
+
+# Memory profiling
+memory-profiler>=0.61.0,<1.0.0
+psutil>=5.9.0,<6.0.0
+
+# CPU profiling
+py-spy>=0.3.14,<1.0.0
+line-profiler>=4.1.0,<5.0.0
+
+# GPU monitoring (if applicable)
+gpustat>=1.1.0,<2.0.0
+
+# ============================================================================
+# Audio Development Tools
+# ============================================================================
+
+# Audio analysis and visualization
+librosa[display]>=0.10.0,<1.0.0
+spectral>=0.23.0,<1.0.0
+
+# Audio debugging
+python-sonic>=0.1.1,<1.0.0
+
+# ============================================================================
+# Model Development & Experimentation
+# ============================================================================
+
+# Experiment tracking
+tensorboard>=2.14.0,<3.0.0
+wandb>=0.15.0,<1.0.0
+
+# Model optimization
+onnx>=1.14.0,<2.0.0
+onnxruntime>=1.16.0,<2.0.0
+
+# Hyperparameter tuning
+optuna>=3.3.0,<4.0.0
+ray[tune]>=2.7.0,<3.0.0
+
+# ============================================================================
+# Data Processing & Augmentation
+# ============================================================================
+
+# Audio augmentation
+audiomentations>=0.35.0,<1.0.0
+torch-audiomentations>=0.11.0,<1.0.0
+
+# Data version control
+dvc>=3.20.0,<4.0.0
+
+# ============================================================================
+# Advanced Testing
+# ============================================================================
+
+# Performance testing
+pytest-benchmark>=4.0.0,<5.0.0
+
+# Parallel testing
+pytest-xdist>=3.3.0,<4.0.0
+
+# Property-based testing
+hypothesis>=6.82.0,<7.0.0
+
+# ============================================================================
+# DevOps & Deployment Preparation
+# ============================================================================
+
+# Containerization support
+docker>=6.1.0,<7.0.0
+
+# Environment management
+conda-env>=2.6.0
+pipenv>=2023.7.0,<2024.0.0
+
+# Configuration management
+hydra-core>=1.3.0,<2.0.0
+omegaconf>=2.3.0,<3.0.0
+
+# ============================================================================
+# Documentation Development
+# ============================================================================
+
+# Enhanced documentation
+sphinx-autodoc-typehints>=1.24.0,<2.0.0
+sphinx-copybutton>=0.5.0,<1.0.0
+myst-parser>=2.0.0,<3.0.0
+
+# API documentation
+sphinx-autoapi>=2.1.0,<3.0.0
+
+# ============================================================================
+# Interactive Development
+# ============================================================================
+
+# Enhanced IPython
+ipython>=8.15.0,<9.0.0
+ipywidgets>=8.1.0,<9.0.0
+
+# JupyterLab extensions
+jupyterlab>=4.0.0,<5.0.0
+jupyterlab-git>=0.42.0,<1.0.0
+
+# ============================================================================
+# Debugging Tools
+# ============================================================================
+
+# Enhanced debugging
+pdb++>=0.10.3,<1.0.0
+pudb>=2022.1.3,<2024.0.0
+
+# Remote debugging
+debugpy>=1.6.0,<2.0.0
+
+# ============================================================================
+# Security & Code Quality
+# ============================================================================
+
+# Security scanning
+bandit>=1.7.5,<2.0.0
+safety>=2.3.0,<3.0.0
+
+# Dependency checking
+pip-audit>=2.6.0,<3.0.0
+
+# ============================================================================
+# Build Tools
+# ============================================================================
+
+# Package building
+build>=0.10.0,<1.0.0
+setuptools-scm>=7.1.0,<8.0.0
+
+# Wheel building
+wheel>=0.41.0,<1.0.0

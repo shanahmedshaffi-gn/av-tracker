@@ -1,0 +1,139 @@
+# Requirements for PyAnnote Multi-Modal Speaker Recognition System
+# Created: September 8, 2025
+# Environment: pyannote-speaker-recognition
+
+# ============================================================================
+# Core Dependencies
+# ============================================================================
+
+# PyTorch ecosystem - Core ML framework
+torch>=2.0.0,<3.0.0
+torchaudio>=2.0.0,<3.0.0
+torchvision>=0.15.0,<1.0.0
+
+# PyAnnote Audio - Speaker diarization and embeddings
+pyannote.audio>=3.1.0,<4.0.0
+
+# SpeechBrain - Speaker recognition models
+speechbrain>=0.5.16,<1.0.0
+
+# Whisper - Speech transcription
+openai-whisper>=20231117
+faster-whisper>=0.10.0,<1.0.0
+
+# ============================================================================
+# Audio Processing
+# ============================================================================
+
+# Audio I/O and processing
+librosa>=0.10.0,<1.0.0
+sounddevice>=0.4.6,<1.0.0
+soundfile>=0.12.0,<1.0.0
+audioread>=3.0.0,<4.0.0
+pydub>=0.25.0,<1.0.0
+
+# Speech recognition (for live processing)
+SpeechRecognition>=3.10.0,<4.0.0
+pyaudio>=0.2.11,<1.0.0
+
+# ============================================================================
+# Computer Vision & Face Recognition
+# ============================================================================
+
+# OpenCV for video processing
+opencv-python>=4.8.0,<5.0.0
+
+# PIL/Pillow for image processing
+Pillow>=10.0.0,<11.0.0
+
+# Chain framework (if available via pip, otherwise install from source)
+# chain-ml>=1.0.0  # Uncomment if available on PyPI
+
+# ============================================================================
+# Scientific Computing & ML
+# ============================================================================
+
+# Core scientific libraries
+numpy>=1.24.0,<2.0.0
+scipy>=1.11.0,<2.0.0
+scikit-learn>=1.3.0,<2.0.0
+
+# Data handling
+pandas>=2.0.0,<3.0.0
+
+# ============================================================================
+# Development & Utilities
+# ============================================================================
+
+# Progress bars and timing
+tqdm>=4.65.0,<5.0.0
+
+# Logging and configuration
+pyyaml>=6.0,<7.0.0
+python-dotenv>=1.0.0,<2.0.0
+
+# File handling
+pathlib2>=2.3.7,<3.0.0; python_version<"3.4"
+
+# ============================================================================
+# Web & API (for future REST API implementation)
+# ============================================================================
+
+# Web framework
+flask>=2.3.0,<3.0.0
+flask-cors>=4.0.0,<5.0.0
+
+# HTTP client
+requests>=2.31.0,<3.0.0
+
+# ============================================================================
+# Testing & Quality Assurance
+# ============================================================================
+
+# Testing framework
+pytest>=7.4.0,<8.0.0
+pytest-cov>=4.1.0,<5.0.0
+
+# Code quality
+black>=23.0.0,<24.0.0
+flake8>=6.0.0,<7.0.0
+mypy>=1.5.0,<2.0.0
+
+# ============================================================================
+# Documentation
+# ============================================================================
+
+# Documentation generation
+sphinx>=7.1.0,<8.0.0
+sphinx-rtd-theme>=1.3.0,<2.0.0
+
+# ============================================================================
+# Jupyter & Interactive Development
+# ============================================================================
+
+# Jupyter for experimentation
+jupyter>=1.0.0,<2.0.0
+ipykernel>=6.25.0,<7.0.0
+matplotlib>=3.7.0,<4.0.0
+seaborn>=0.12.0,<1.0.0
+
+# ============================================================================
+# Hardware Acceleration (Optional)
+# ============================================================================
+
+# CUDA support (uncomment if using NVIDIA GPU)
+# torch[cu118]>=2.0.0  # For CUDA 11.8
+# torchaudio[cu118]>=2.0.0
+
+# MPS support for Apple Silicon is included in base PyTorch
+
+# ============================================================================
+# Additional ML Models (Optional but Recommended)
+# ============================================================================
+
+# Hugging Face for additional models
+transformers>=4.33.0,<5.0.0
+datasets>=2.14.0,<3.0.0
+
+# Model management
+huggingface-hub>=0.16.0,<1.0.0
