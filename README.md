@@ -1,5 +1,4 @@
-# PyAnnote Speaker Recognition System
-## Professional Multi-Modal Speaker Verification
+# Speaker Recognition System
 
 A speaker recognition system combining audio embeddings with facial recognition for enhanced security and accuracy.
 
