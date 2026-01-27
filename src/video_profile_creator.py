@@ -55,6 +55,8 @@ class VisualProfileMetadata:
         return asdict(self)
 
 
+
+
 @dataclass
 class VisualProfile:
     """Visual profile with face embeddings"""

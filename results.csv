@@ -1,0 +1,11 @@
+file_path,speaker_count,chunks_processed,identified_count,unknown_count,most_common_speaker,avg_similarity,top_similarity,bottom_similarity
+demo00000/21Uxsk56VDQ.wav,10,84,67,17,demo00004,0.5561,0.8537,0.1958
+demo00001/2Z4m4lnjxkY.wav,10,54,30,24,demo00008,0.5470,0.8936,0.0867
+demo00002/3JZ_D3ELwOQ.wav,10,85,21,64,demo00009,0.4265,0.9924,0.1277
+demo00003/M3mJkSqZbX4.wav,10,64,33,31,demo00008,0.4935,0.8686,0.1244
+demo00004/kXYiU_JCYtU.wav,10,62,35,27,demo00009,0.5306,0.9365,0.1708
+demo00005/e-ORhEE9VVg.wav,10,85,23,62,demo00009,0.4424,0.8123,0.0848
+demo00006/DLzxrzFCyOs.wav,10,70,30,40,demo00008,0.4656,0.8993,0.1644
+demo00007/9bZkp7q19f0.wav,10,84,14,70,demo00008,0.3197,0.9147,0.0875
+demo00008/dQw4w9WgXcQ.wav,10,70,33,37,demo00008,0.4732,0.8920,0.1086
+demo00009/hY7m5jjJ9mM.wav,10,184,103,81,demo00009,0.5203,0.8974,0.0775

@@ -1,7 +1,6 @@
-# PyAnnote Speaker Recognition System
-## Professional Multi-Modal Speaker Verification
+# Speaker Recognition System
 
-A production-ready speaker recognition system combining audio embeddings with facial recognition for enhanced security and accuracy.
+A speaker recognition system combining audio embeddings with facial recognition for enhanced security and accuracy.
 
 ## 🚀 Quick Start
 
@@ -65,7 +64,6 @@ pyannote/
 - **Professional logging** and result tracking
 - **Configurable thresholds** for verification
 - **Quality scoring** for profile validation
-- **Cross-platform support** (macOS, Linux, Windows)
 
 ### Technical Stack
 - **PyAnnote Audio 3.3.2**: Core speaker diarization
@@ -77,15 +75,6 @@ pyannote/
 - **OpenCV**: Computer vision processing
 - **Professional Python**: Type hints, error handling, logging
 
-## 🧪 Testing
-
-The repository includes comprehensive test suites for validation. Tests are not included in the GitHub repository but can be developed locally.
-
-### Test Coverage
-- ✅ **100% Accuracy** across all speaker profiles
-- ✅ **Perfect Separation** with no false positives  
-- ✅ **Fast Processing** averaging 0.20s per verification
-- ✅ **Robust Cross-validation** with comprehensive metrics
 
 ## 📊 Usage Examples
 
