@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 # PyAnnote Multi-Modal Speaker Recognition Environment Setup
 # ==========================================================
 # 
@@ -27,7 +29,7 @@ readonly NC='\033[0m' # No Color
 
 # Configuration
 ENVIRONMENT_NAME="pyannote-speaker-recognition"
-PYTHON_VERSION="3.11"
+PYTHON_VERSION="3.10"
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Functions
@@ -64,6 +66,7 @@ check_environment_exists() {
 create_environment() {
     log "Creating conda environment: ${ENVIRONMENT_NAME}"
     conda create -n "${ENVIRONMENT_NAME}" python="${PYTHON_VERSION}" -y
+    conda install -c conda-forge ffmpeg -y
     log "Environment created successfully"
 }
 
@@ -96,17 +99,23 @@ install_pytorch() {
 install_audio_dependencies() {
     log "Installing audio processing dependencies..."
     
+    # Instalar FFmpeg via Conda (Melhor método para evitar erro no 'av')
+    log "Installing FFmpeg via Conda to fix 'av' installation issues..."
+    conda install -c conda-forge ffmpeg -y || warn "Failed to install FFmpeg via Conda"
+
     # Install system audio dependencies first (if needed)
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        log "Note: On Linux, you may need to install system audio libraries:"
-        log "  sudo apt-get install portaudio19-dev python3-pyaudio"
-        log "  sudo apt-get install libasound-dev"
+        log "Note: On Linux, installing system libraries for compilation..."
+        # Adicionado pkg-config e bibliotecas do ffmpeg para garantir
+        sudo apt-get update
+        sudo apt-get install -y portaudio19-dev python3-pyaudio libasound2-dev \
+                                ffmpeg libavdevice-dev libavfilter-dev libopus-dev libvpx-dev pkg-config
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         if command -v brew &> /dev/null; then
             log "Installing audio dependencies via Homebrew..."
-            brew install portaudio || warn "Failed to install portaudio via brew (may already be installed)"
+            brew install portaudio ffmpeg pkg-config || warn "Homebrew install failed"
         else
-            warn "Homebrew not found. You may need to install PortAudio manually."
+            warn "Homebrew not found. Ensure FFmpeg and PortAudio are installed."
         fi
     fi
 }

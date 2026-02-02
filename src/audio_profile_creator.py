@@ -210,17 +210,25 @@ class EnhancedAudioProfileCreator:
         logger.info("Loading SpeechBrain speaker embedding model...")
         
         try:
-            device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-            self.embedding_model = PretrainedSpeakerEmbedding(
-                "speechbrain/spkrec-ecapa-voxceleb",
-                device=device
+            from speechbrain.inference.speaker import EncoderClassifier
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+            
+            # Use a local directory for the model to avoid symlink issues on Windows
+            # and set run_opts to use the correct device
+            save_dir = os.path.join(os.getcwd(), "pretrained_models", "spkrec-ecapa-voxceleb")
+            os.makedirs(save_dir, exist_ok=True)
+            
+            self.embedding_model = EncoderClassifier.from_hparams(
+                source="speechbrain/spkrec-ecapa-voxceleb",
+                savedir=save_dir,
+                run_opts={"device": device}
             )
             logger.info(f"Model loaded successfully on {device}")
             
         except Exception as e:
             logger.error(f"Failed to load embedding model: {e}")
             raise
-    
+
     def _get_recording_instructions(self, duration: int) -> None:
         """Provide clear recording instructions to the user"""
         print(f"\n{'='*60}")
@@ -291,7 +299,7 @@ class EnhancedAudioProfileCreator:
             print("Consider re-recording for better recognition performance.")
         
         return is_acceptable, quality_metrics
-    
+
     def generate_embedding(self, audio_data: np.ndarray) -> np.ndarray:
         """Generate speaker embedding from audio data"""
         
@@ -301,26 +309,29 @@ class EnhancedAudioProfileCreator:
             # Prepare audio tensor
             waveform = torch.from_numpy(audio_data).float()
             
-            # Ensure correct shape for the model (batch_size, num_channels, num_samples)
+            # Ensure correct shape for the model
+            # SpeechBrain expects (batch, time)
             if len(waveform.shape) == 1:
-                waveform = waveform.unsqueeze(0).unsqueeze(0)  # Add batch and channel dimensions
-            elif len(waveform.shape) == 2:
                 waveform = waveform.unsqueeze(0)  # Add batch dimension
             
-            # Normalize audio
-            waveform = waveform - waveform.mean()
-            waveform = waveform / (waveform.std() + 1e-8)
+            # Normalize audio (SpeechBrain usually handles this, but good practice)
+            # waveform = waveform - waveform.mean()
+            # waveform = waveform / (waveform.std() + 1e-8)
             
-            # Move to model device
-            waveform = waveform.to(self.embedding_model.device)
+            # Move to model device (handled by encode_batch if run_opts set correctly?)
+            # Usually better to send to device manually if needed, but encode_batch handles it if input is on device
+            device = self.embedding_model.device
+            waveform = waveform.to(device)
             
             # Generate embedding
             with torch.no_grad():
-                embedding = self.embedding_model(waveform)
+                # encode_batch returns (batch, 1, emb_dim)
+                embedding = self.embedding_model.encode_batch(waveform)
             
-            # Convert to numpy if needed
+            # Convert to numpy
+            # embedding is (batch, 1, 192) -> squeeze to (192,)
             if isinstance(embedding, torch.Tensor):
-                embedding = embedding.cpu().numpy()
+                embedding = embedding.squeeze().cpu().numpy()
             
             logger.info(f"Embedding generated successfully - shape: {embedding.shape}")
             return embedding

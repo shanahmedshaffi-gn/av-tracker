@@ -128,3 +128,8 @@ av_results_*.json
 *_results_*.json
 *_results_*.txt
 processing_temp/
+
+# Ignore all files in the 'data' directory except for the structure
+data/
+*.sh
+vox_100_atores/
